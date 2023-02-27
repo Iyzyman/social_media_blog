@@ -1,0 +1,51 @@
+.background-overlay {
+  background-image: url(bgimg.png);
+  background-position: center;
+ /* Stretch the image to fit the screen without repeating, maintaining aspect ratio */
+ /* Set the background image to not repeat */
+  position: fixed;
+  background-size: 72vw;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Make sure the background is behind the content */
+}
+  
+  /* Set the background color and opacity */
+  body {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  
+
+  
+  /* Style the main content area */
+.mycontent {
+    color: #fff;
+    max-width: 73vw;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    padding: 20px;
+}
+  
+  /* Style links */
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .navbar {
+    background-color: #343a40;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
+  }
+
+  .container{
+    width:auto;
+    height: 80vh;
+  }

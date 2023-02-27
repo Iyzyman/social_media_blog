@@ -1,0 +1,79 @@
+/* Main container for the group list */
+.list-group {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Style the list items for each group */
+.list-group-item {
+    background-color: #F0F0F0;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+/* Style the group name in each list item */
+.list-group-item-heading {
+    color: #2F4F4F;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style the group description in each list item */
+.list-group-item-text {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Style the badges for the number of members and posts */
+.badge {
+    background-color: #FF6347;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 5px;
+    padding: 5px 10px;
+}
+
+/* Style the "Create New Group" button */
+.btn-warning {
+    background-color: #FF6347;
+    border: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+/* Style the "Welcome Back" message */
+h2 {
+    color: #2F4F4F;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style the link to the user's profile page */
+a {
+    color: #FF6347;
+    font-weight: bold;
+}
+
+/* Style the page header */
+.content h2 {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style the page description */
+.content p {
+    color:white;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}

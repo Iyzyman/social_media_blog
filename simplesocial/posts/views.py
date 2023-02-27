@@ -1,8 +1,11 @@
 from django.contrib import messages
+from django.shortcuts import render, get_object_or_404,redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.http import Http404
 from django.views import generic
+from posts.forms import CommentForm
+from django.contrib.auth.decorators import login_required
 
 # pip install django-braces
 from braces.views import SelectRelatedMixin
@@ -69,7 +72,7 @@ class CreatePost(LoginRequiredMixin, SelectRelatedMixin, generic.CreateView):
 class DeletePost(LoginRequiredMixin, SelectRelatedMixin, generic.DeleteView):
     model = models.Post
     select_related = ("user", "group")
-    success_url = reverse_lazy("posts:all")
+    success_url = reverse_lazy("groups:all")
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -78,3 +81,17 @@ class DeletePost(LoginRequiredMixin, SelectRelatedMixin, generic.DeleteView):
     def delete(self, *args, **kwargs):
         messages.success(self.request, "Post Deleted")
         return super().delete(*args, **kwargs)
+    
+@login_required
+def add_comment_to_post(request, username, pk):
+    post = get_object_or_404(models.Post, user__username=username, pk=pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+            return redirect('posts:single', username=post.user.username, pk=post.pk)
+    form = CommentForm()
+    return render(request, 'posts/comment_form.html', {'form': form})

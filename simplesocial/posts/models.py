@@ -38,3 +38,19 @@ class Post(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.text
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.post.id)])
+
+    class Meta:
+        ordering = ['-created_at']

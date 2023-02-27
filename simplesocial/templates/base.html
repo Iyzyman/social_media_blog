@@ -4,42 +4,47 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Star Social</title>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lilita+One &family=Poppins & display=swap" rel="stylesheet">
-    <style> @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins&display=swap'); </style>
-    	<link rel="stylesheet" href="{% static 'simplesocial/css/master.css' %}">
-
-
+		<style> @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins&display=swap'); </style>
+		<link rel="stylesheet" href="{% static 'css/master.css' %}">
 	</head>
 	<body>
-		<nav class='navbar mynav' role='navigation' id='navbar'>
-			<div class'container-fluid'>
-				<div class="navbar-header">
-     			 <a class='navbar mynav' href="{% url 'home' %}">Star Social</a>
-    			</div>
-				<ul class="nav navbar-nav navbar-right">
-					{% if user.is_authenticated %}
-					<li><a href="{% url 'posts:create' %}" title="">Post</a></li>
-					<li><a href="{% url 'groups:all' %}" title="">Groups</a></li>
-					<li><a href="{% url 'groups:create'%}" title="">Create Group</a></li>
-					<li><a href="{% url 'accounts:logout' %}" title="">Logout</a></li>
-					{% else %}
-					<li><a href="'{% groups:all %'}" title="">Groups</a></li>
-					<li><a href="{% url 'accounts:login' %}" title="">Login</a></li>
-					<li><a href="{% url 'accounts:signup' %}" title="">Sign Up</a></li>
-
-					{% endif %}
-				</ul>
-			</div>
+		<div class="background-overlay"></div>
+		<nav class="navbar navbar-expand-sm bg- navbar-dark">
+		<div class="container-fluid">
+		<a class="navbar-brand" href="{% url 'home' %}">GymHub</a>
+		<ul class="nav navbar-nav navbar-right">
+			{% if user.is_authenticated %}
+			<li class="nav-item">
+			<a class="nav-link" href="{% url 'posts:create' %}">Post</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="{% url 'groups:all' %}">Groups</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="{% url 'groups:create'%}">Create Group</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+			</li>
+			{% else %}
+			<li class="nav-item">
+			<a class="nav-link" href="{% url 'groups:all' %}">Groups</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in" >Login</span> </a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="{% url 'accounts:signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+			</li>
+			{% endif %}
+		</ul>
+		</div>
 		</nav>
 		<div class="container mycontent">
-		{% block content%}
-		{% endblock %}
+			{% block content%}
+			{% endblock %}
 		</div>
 	</body>
 </html>

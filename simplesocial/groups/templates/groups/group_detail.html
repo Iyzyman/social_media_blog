@@ -2,12 +2,17 @@
 {% block pregroup %}
 
 <h1>{{group.name}}</h1>
-<h2>Member Count:{{group.members.count}}</h2>
+<h4>Number of GymHubbers: {{group.members.count}}</h4>
 <div class="content">
 	{% if user in group.members.all %}
 		<a href="{% url 'groups:leave' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class='glyphicon glyphicon-remove-circle'></span>Leave</a>
 	{% else %}
 		<a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class='glyphicon glyphicon-ok-circle'></span>Join</a>
+	{% endif %}
+	{% if user == group.user %}
+			<a href="#" class="btn btn-lg btn-fill btn-danger">
+				<span class='glyphicon glyphicon-trash'></span>Delete Group
+			</a>
 	{% endif %}
 </div>
 {% endblock %}

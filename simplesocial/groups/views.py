@@ -1,18 +1,21 @@
-from django.shortcuts import render
-from django.contrib.auth.mixins import (
-    LoginRequiredMixin, PermissionRequiredMixin)
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib import messages
 from django.urls import reverse
 from django.views import generic
-from django.shortcuts import get_object_or_404
+from django.db import IntegrityError
+from django.urls import reverse_lazy
 from .models import Group, GroupMember
-from. import models
+from . import models
 
 
 class CreateGroup(LoginRequiredMixin, generic.CreateView):
     fields = ('name', 'description')
     model = Group
 
+    """def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)"""
 
 class SingleGroup(generic.DetailView):
     model = Group
@@ -53,3 +56,15 @@ class LeaveGroup(LoginRequiredMixin, generic.RedirectView):
             membership.delete()
             messages.success(self.request, 'You have left the group!')
             return super().get(request, *args, **kwargs)
+"""class DeleteGroup(LoginRequiredMixin, generic.DeleteView):
+    model = Group
+    select_related = ("user", "group")
+    success_url = reverse_lazy("group:all")
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(user_id=self.request.user.id)
+
+    def delete(self, *args, **kwargs):
+        messages.success(self.request, "Group Deleted")
+        return super().delete(*args, **kwargs)"""

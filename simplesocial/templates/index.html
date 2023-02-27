@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
+{% load static %} 
+
 {% block content %}
-<h1>Welcome to Star Social!</h1>
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% if request.user.is_authenticated %}
+<div class="container">
+    <h1>Welcome Back to GymHub, {{ user.username }}</h1>
+    <p>Keep up the great work and never give up on your fitness goals. Remember, every day is a new opportunity to push yourself and become stronger. As we like to say at GymHub, "Be strong, be healthy, be you."</p>
+</div>
+{% else %}
+<div class="container">
+    <h1>Welcome to GymHub</h1>
+    <p>Join our vibrant community of fitness enthusiasts and achieve your goals with support from like-minded people. Share your progress, ask for advice, and get inspired on your fitness journey. </p>
+    <a href="{% url 'accounts:signup' %}" class="cta-btn">Join Now</a>
+</div>
+{% endif %}
 {% endblock %}
 		
 	
