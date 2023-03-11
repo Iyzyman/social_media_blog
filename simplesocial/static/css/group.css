@@ -1,0 +1,85 @@
+/* Main container for the group */
+
+    
+    /* Style the group name */
+    h1 {
+    color:white;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    }
+    
+    /* Style the group members count */
+    h4 {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+    
+    /* Style the messages */
+    .messages {
+    margin-bottom: 10px;
+    }
+    
+    /* Style the message text */
+    .messages li {
+    font-size: 16px;
+    line-height: 1.5;
+    }
+    
+    /* Style the "Leave" button */
+    .btn-warning {
+    background-color: #FF6347;
+    border: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-right: 10px;
+    }
+    
+    /* Style the "Join" button */
+    .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-right: 10px;
+    }
+    
+    /* Style the "Delete Group" button */
+    .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    }
+    
+    /* Style the link to the user's profile page */
+    a {
+    color: #FF6347;
+    font-weight: bold;
+    }
+    
+    /* Style the page header */
+    .content h2 {
+    color: #FFFFFF;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    }
+    
+    
+    
+    

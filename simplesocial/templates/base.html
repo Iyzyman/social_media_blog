@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Star Social</title>
+		<title>GymHub</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lilita+One &family=Poppins & display=swap" rel="stylesheet">
 		<style> @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins&display=swap'); </style>
@@ -17,20 +17,23 @@
 		<ul class="nav navbar-nav navbar-right">
 			{% if user.is_authenticated %}
 			<li class="nav-item">
-			<a class="nav-link" href="{% url 'posts:create' %}">Post</a>
+				<a class="nav-link" href="{% url 'posts:all' %}">Post</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link" href="{% url 'groups:all' %}">Groups</a>
+			<a class="nav-link posts" href="{% url 'posts:create' %}"> Create Post</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link" href="{% url 'groups:create'%}">Create Group</a>
+			<a class="nav-link" href="{% url 'groups:all' %}">Topics</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link topic" href="{% url 'groups:create'%}">Create Topic</a>
 			</li>
 			<li class="nav-item">
 			<a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
 			</li>
 			{% else %}
 			<li class="nav-item">
-			<a class="nav-link" href="{% url 'groups:all' %}">Groups</a>
+			<a class="nav-link" href="{% url 'groups:all' %}">Topics</a>
 			</li>
 			<li class="nav-item">
 			<a class="nav-link" href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in" >Login</span> </a>

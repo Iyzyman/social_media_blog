@@ -28,7 +28,7 @@
           <div class="date postdate">
             <small>{{ comment.create_date }}</small>
           </div>
-      <p>{{ comment.text|safe|linebreaks }}</p>
+      <h1>{{ comment.text|safe|linebreaks }}</h1>
       <p>Posted by: <strong>{{ comment.author }}</strong></p>
   {% empty %}
       <p>No comments posted.</p>

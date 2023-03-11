@@ -1,6 +1,10 @@
 {% extends 'posts/post_base.html' %}
 
 {% block content %}
+{% load static %} 
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+{% endblock %}
     <h1>New comment</h1>
     <form method="POST" class="post-form">
     {% csrf_token %}

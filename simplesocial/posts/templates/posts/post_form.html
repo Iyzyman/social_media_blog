@@ -1,6 +1,10 @@
 {% extends 'posts/post_base.html' %}
 {% load bootstrap4 %}
 {% block post_content %}
+{% load static %} 
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+{% endblock %}
 <h4>Create a new Post</h4>
 <form id="postForm" action="{% url 'posts:create' %}" method='post'>
 	{% csrf_token %}

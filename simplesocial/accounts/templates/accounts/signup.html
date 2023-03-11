@@ -2,9 +2,14 @@
 {% load bootstrap4 %}
 
 {% block content %}
+<style>
+	.container, .container * {
+		color: white;
+	}
+</style>
 <div class="container">
 	<h1>Sign Up</h1>
-	<form method="POST">
+	<form method="POST" class="sign-up">
 		{% csrf_token %}
 		{% bootstrap_form form %}
 		<input type="submit" class="btn btn-primary" value='Sign Up'>

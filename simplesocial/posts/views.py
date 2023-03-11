@@ -12,6 +12,7 @@ from braces.views import SelectRelatedMixin
 
 from . import forms
 from . import models
+from groups.models import Group, GroupMember
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -20,6 +21,15 @@ User = get_user_model()
 class PostList(SelectRelatedMixin, generic.ListView):
     model = models.Post
     select_related = ("user", "group")
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['get_user_groups'] = Group.objects.filter(memberships__user=self.request.user)
+            context['get_other_groups']=Group.objects.exclude(memberships__user=self.request.user)
+        else:
+            context['get_other_groups']=Group.objects.all()
+        return context
+ 
 
 
 class UserPosts(generic.ListView):
@@ -51,7 +61,7 @@ class PostDetail(SelectRelatedMixin, generic.DetailView):
         return queryset.filter(
             user__username__iexact=self.kwargs.get("username")
         )
-
+   
 
 class CreatePost(LoginRequiredMixin, SelectRelatedMixin, generic.CreateView):
     # form_class = forms.PostForm

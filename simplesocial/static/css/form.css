@@ -1,0 +1,87 @@
+#postForm {
+    background-color: grey;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  #postForm input[type=submit] {
+    background-color: #FF6347;
+    border-color: #FF6347;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+  }
+  
+  #postForm input[type=submit]:hover {
+    background-color: #0069D9;
+    border-color: #0062CC;
+  }
+
+  #groupForm {
+    background-color: grey;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  #groupForm input[type=submit] {
+    background-color: #FF6347;
+    border-color: #FF6347;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+  }
+  
+  #groupForm input[type=submit]:hover {
+    background-color: #0069D9;
+    border-color: #0062CC;
+  }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .post-form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: grey;
+    border-radius: 10px;
+  }
+  
+  .post-form input[type=text],
+  .post-form textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+  }
+  
+  .post-form button {
+    background-color: #FF6347;
+    border-color: #FF6347;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+  }
+  
+  .post-form button:hover {
+    background-color: #FF5733;
+  }
+  
+  .post-form label {
+    font-size: 16px;
+    font-weight: bold;
+  }

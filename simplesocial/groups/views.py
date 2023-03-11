@@ -13,9 +13,6 @@ class CreateGroup(LoginRequiredMixin, generic.CreateView):
     fields = ('name', 'description')
     model = Group
 
-    """def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)"""
 
 class SingleGroup(generic.DetailView):
     model = Group
@@ -23,7 +20,6 @@ class SingleGroup(generic.DetailView):
 
 class ListGroups(generic.ListView):
     model = Group
-# Create your views here.
 
 
 class JoinGroup(LoginRequiredMixin, generic.RedirectView):
@@ -35,8 +31,10 @@ class JoinGroup(LoginRequiredMixin, generic.RedirectView):
 
         try:
             GroupMember.objects.create(user=self.request.user, group=group)
-        except IntergrityError:
-            messages.warning(self.requests, 'Warning already a member!')
+        except IntegrityError:
+            messages.warning(self.request, 'Warning already a member!')
+            return super().get(request, *args, **kwargs)
+
         else:
             messages.success(self.request, 'You are now a member!')
             return super().get(request, *args, **kwargs)
@@ -56,15 +54,3 @@ class LeaveGroup(LoginRequiredMixin, generic.RedirectView):
             membership.delete()
             messages.success(self.request, 'You have left the group!')
             return super().get(request, *args, **kwargs)
-"""class DeleteGroup(LoginRequiredMixin, generic.DeleteView):
-    model = Group
-    select_related = ("user", "group")
-    success_url = reverse_lazy("group:all")
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        return queryset.filter(user_id=self.request.user.id)
-
-    def delete(self, *args, **kwargs):
-        messages.success(self.request, "Group Deleted")
-        return super().delete(*args, **kwargs)"""

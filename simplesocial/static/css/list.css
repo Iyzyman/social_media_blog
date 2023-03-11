@@ -1,0 +1,41 @@
+/* Style the Your Groups and All Groups titles */
+.title {
+    color: #2F4F4F;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style the group links */
+.group-link {
+    color: #FF6347;
+    font-weight: bold;
+}
+
+/* Style the group links on hover */
+.group-link:hover {
+    text-decoration: none;
+    color: #2F4F4F;
+}
+
+/* Style the card content */
+.card .content {
+    padding: 20px;
+}
+
+/* Style the cards */
+.card {
+    
+    background-color: #F0F0F0;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 16px;
+    padding: 0;
+}
+.list-unstyled li a {
+    color:  black;
+}
+
+.col-md-4{
+    margin-top: 10px;
+}
