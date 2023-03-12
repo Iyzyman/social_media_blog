@@ -9,7 +9,15 @@
 	{% if request.user.is_authenticated %}
 	<div class="card card-with-shadow">
 		<div class="content">
+			<a href="{% url 'posts:for_user' username=user.username%}" title=""><h1 class="title">My Profile</h1></a>
+		</div>
+	</div>
+	<div class="card card-with-shadow">
+		<div class="content">
 			<h5 class="title">Your Topics</h5>
+			{% if not get_user_groups %}
+			<div>No Topics Joined</div>
+			{% endif %}
 			<ul class="list-unstyled">
 				{% for member_group in get_user_groups %}
 				<li><a href="{% url 'groups:single' slug=member_group.slug %}">{{member_group.name}}</a></li>
@@ -39,4 +47,5 @@
 	{% include 'posts/_post.html' %}
 	{% endfor %}
 </div>
+<script src="{% static 'js/list.js' %}"></script>
 {% endblock %}

@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 {% endblock %}
 <div class="container create_topic">
-<h4>Create a new group!</h4>
+<h4>Create a new Topic!</h4>
 	<form action="{% url 'groups:create' %}" method="post" id="groupForm">
 		{% csrf_token %}
 		{% bootstrap_form form%}

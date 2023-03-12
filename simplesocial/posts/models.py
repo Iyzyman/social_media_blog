@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
+from django.core.validators import MaxLengthValidator
 
 # pip install misaka
 import misaka
@@ -43,7 +44,7 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     author = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
-    text = models.TextField()
+    text = models.TextField(validators=[MaxLengthValidator(2200)])
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

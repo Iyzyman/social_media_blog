@@ -11,10 +11,18 @@
 		by user:
 		<strong><a href="{% url 'posts:for_user' username=post.user.username %}" title="">{{post.user.username}}</a></strong>
 	<div class="media-footer">
-		<a class="btn btn-success" href="{% url 'posts:add_comment_to_post' username=post.user.username pk=post.pk %}">Add comment</a>
+		<button id="comment-toggle-{{ post.pk }}" class="btn btn-success">Add Comment</button>
+		
 		{% if user.is_authenticated and post.user == user and not hide_delete %}
-		<a href="{% url 'posts:delete' pk=post.pk%}" title="delete" class="btn btn-simple"><span class="text-danger icon-label delete-btn">Delete</span></a>
+		<a href="{% url 'posts:delete' pk=post.pk%}" title="delete" class="btn btn-simple"><div class="text-danger icon-label delete-btn">Delete Post</div></a>
 		{% endif %}
+		<div id="comment-form-{{ post.pk }}" style="display:none;" class="post-form">
+			<form method="POST" action="{% url 'posts:add_comment_to_post' username=post.user.username pk=post.pk %}">
+			  {% csrf_token %}
+			  {{ comment_form.as_p }}
+			  <button type="submit">Submit</button>
+			</form>
+		  </div>
 	</div>
 	<div class="comments">
 		{% for comment in post.comments.all %}
@@ -31,3 +39,5 @@
 	</div>
 </div>
 </div>
+
+

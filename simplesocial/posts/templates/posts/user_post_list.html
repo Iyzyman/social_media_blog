@@ -7,11 +7,12 @@
 {% endblock %}
 
 {% block post_content %}
-
+{% load static %} 
 <div class="col-md-8">
 	{% for post in post_list %}
 	{% include 'posts/_post.html' %}
 	{% endfor %}
 </div>
 </div>
+<script src="{% static 'js/list.js' %}"></script>
 {% endblock %}

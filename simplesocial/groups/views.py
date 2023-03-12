@@ -6,6 +6,7 @@ from django.views import generic
 from django.db import IntegrityError
 from django.urls import reverse_lazy
 from .models import Group, GroupMember
+from posts.forms import CommentForm
 from . import models
 
 
@@ -16,7 +17,10 @@ class CreateGroup(LoginRequiredMixin, generic.CreateView):
 
 class SingleGroup(generic.DetailView):
     model = Group
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form']= CommentForm()
+        return context
 
 class ListGroups(generic.ListView):
     model = Group

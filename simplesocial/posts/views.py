@@ -21,13 +21,13 @@ User = get_user_model()
 class PostList(SelectRelatedMixin, generic.ListView):
     model = models.Post
     select_related = ("user", "group")
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['comment_form']= CommentForm()
+        context['get_other_groups']=Group.objects.all()
         if self.request.user.is_authenticated:
             context['get_user_groups'] = Group.objects.filter(memberships__user=self.request.user)
-            context['get_other_groups']=Group.objects.exclude(memberships__user=self.request.user)
-        else:
-            context['get_other_groups']=Group.objects.all()
         return context
  
 
@@ -49,11 +49,13 @@ class UserPosts(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["post_user"] = self.post_user
+        context['comment_form']= CommentForm()
         return context
 
 
 class PostDetail(SelectRelatedMixin, generic.DetailView):
     model = models.Post
+    comment_form = CommentForm()
     select_related = ("user", "group")
 
     def get_queryset(self):
@@ -61,6 +63,10 @@ class PostDetail(SelectRelatedMixin, generic.DetailView):
         return queryset.filter(
             user__username__iexact=self.kwargs.get("username")
         )
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form']= CommentForm()
+        return context
    
 
 class CreatePost(LoginRequiredMixin, SelectRelatedMixin, generic.CreateView):
@@ -97,12 +103,12 @@ class DeletePost(LoginRequiredMixin, SelectRelatedMixin, generic.DeleteView):
 def add_comment_to_post(request, username, pk):
     post = get_object_or_404(models.Post, user__username=username, pk=pk)
     if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
             comment.post = post
             comment.author = request.user
             comment.save()
-            return redirect('posts:single', username=post.user.username, pk=post.pk)
-    form = CommentForm()
-    return render(request, 'posts/comment_form.html', {'form': form})
+    return redirect('posts:single', username=post.user.username, pk=post.pk)
+    
+    
