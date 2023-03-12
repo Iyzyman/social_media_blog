@@ -11,13 +11,13 @@
 	</head>
 	<body>
 		<div class="background-overlay"></div>
-		<nav class="navbar navbar-expand-sm bg- navbar-dark">
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<div class="container-fluid">
 		<a class="navbar-brand" href="{% url 'home' %}">GymHub</a>
 		<ul class="nav navbar-nav navbar-right">
 			{% if user.is_authenticated %}
 			<li class="nav-item">
-				<a class="nav-link" href="{% url 'posts:all' %}">Post</a>
+				<a class="nav-link" href="{% url 'posts:all' %}">Feed</a>
 			</li>
 			<li class="nav-item">
 			<a class="nav-link posts" href="{% url 'posts:create' %}"> Create Post</a>
@@ -33,6 +33,9 @@
 			</li>
 			{% else %}
 			<li class="nav-item">
+				<a class="nav-link" href="{% url 'posts:all' %}">Feed</a>
+			</li>
+			<li class="nav-item">
 			<a class="nav-link" href="{% url 'groups:all' %}">Topics</a>
 			</li>
 			<li class="nav-item">
@@ -45,8 +48,9 @@
 		</ul>
 		</div>
 		</nav>
-		<div class="container mycontent">
+		
 			{% block content%}
+			<div class="mycontent"></div>
 			{% endblock %}
 		</div>
 	</body>

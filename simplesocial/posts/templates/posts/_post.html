@@ -3,18 +3,13 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/posts.css' %}">
 {% endblock %}
 <div class="post media">
-	<h3>{{post.message_html|safe}}</h3>
+	<a href="{% url 'posts:single' username=post.user.username pk=post.pk %}" title=""><h3>{{post.message_html|safe}}</h3></a>
 	<div class="media-body">
+		{% if post.image %}
+		<div class="post_img"><img src="{{ post.image.url }}" width=100% alt="Post Image"></div>
+		{% endif %}
 		by user:
-		<strong>{{post.user.username}}</strong>
-		<h5 class='media-heading'>
-		<span class="username">
-			<a href="{% url 'posts:for_user' username=post.user.username %}" title=""></a>
-		</span>
-		<time class="time">
-			<a href="{% url 'posts:single' username=post.user.username pk=post.pk %}" title=""></a>
-		</time>
-	</h5>
+		<strong><a href="{% url 'posts:for_user' username=post.user.username %}" title="">{{post.user.username}}</a></strong>
 	<div class="media-footer">
 		<a class="btn btn-success" href="{% url 'posts:add_comment_to_post' username=post.user.username pk=post.pk %}">Add comment</a>
 		{% if user.is_authenticated and post.user == user and not hide_delete %}
@@ -28,7 +23,7 @@
           <div class="date postdate">
             <small>{{ comment.create_date }}</small>
           </div>
-      <h1>{{ comment.text|safe|linebreaks }}</h1>
+      <h2>{{ comment.text|safe|linebreaks }}</h2>
       <p>Posted by: <strong>{{ comment.author }}</strong></p>
   {% empty %}
       <p>No comments posted.</p>

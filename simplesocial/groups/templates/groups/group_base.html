@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
+<style>
+	.grp_content {
+		max-width:98vw;
+	}
+</style>
+<div class="grp_content">
 	<div class="row">
 	{% block pregroup %}{% endblock %}
 	{% block group_content %}{% endblock %}

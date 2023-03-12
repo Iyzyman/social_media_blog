@@ -3,7 +3,7 @@
     
     /* Style the group name */
     h1 {
-    color:white;
+    color:black;
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -11,7 +11,7 @@
     
     /* Style the group members count */
     h4 {
-    color: white;
+    color: black;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -30,7 +30,7 @@
     
     /* Style the "Leave" button */
     .btn-warning {
-    background-color: #FF6347;
+    background-color: black;
     border: none;
     color: #FFFFFF;
     font-size: 18px;
@@ -42,9 +42,9 @@
     }
     
     /* Style the "Join" button */
-    .btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
+    .content btn-success {
+    background-color: black;
+    border-color: black;
     color: #FFFFFF;
     font-size: 18px;
     font-weight: bold;
@@ -56,8 +56,8 @@
     
     /* Style the "Delete Group" button */
     .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: black;
+    border-color: black;
     color: #FFFFFF;
     font-size: 18px;
     font-weight: bold;
@@ -67,10 +67,7 @@
     }
     
     /* Style the link to the user's profile page */
-    a {
-    color: #FF6347;
-    font-weight: bold;
-    }
+
     
     /* Style the page header */
     .content h2 {
@@ -78,6 +75,9 @@
     font-size: 50px;
     font-weight: bold;
     margin-bottom: 20px;
+    }
+    .content{
+        width:50vw;
     }
     
     

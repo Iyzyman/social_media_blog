@@ -6,6 +6,7 @@
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/group.css' %}">
 {% endblock %}
+<div class="container group">
 <h1>{{group.name}}</h1>
 <h4>Number of GymHubbers: {{group.members.count}}</h4>
 <div class="content">
@@ -31,6 +32,7 @@
 
 {% endblock %}
 {% block group_content %}
+
 <div class="col-md-8">
 	{% if not group.posts.count %}
 
@@ -41,5 +43,6 @@
 				{% include 'posts/_post.html' %}
 			{% endfor %}
 	{% endif %}
-
+</div>
+</div>
 {% endblock %}

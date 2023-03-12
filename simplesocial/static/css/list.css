@@ -25,7 +25,8 @@
 
 /* Style the cards */
 .card {
-    
+    margin-top: 10px;
+    margin-left: 10px;
     background-color: #F0F0F0;
     border: none;
     border-radius: 0;
@@ -36,6 +37,3 @@
     color:  black;
 }
 
-.col-md-4{
-    margin-top: 10px;
-}

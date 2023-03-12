@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="posts-page">
-	<div class="container">
+<style>
+	.post_content {
+		max-width:98vw;
+	}
+</style>
+	<div class="post_content">
 		<div class="row">
 			{% block prepost %}{% endblock %}
 			{% block post_content %}{% endblock %}
 			{% block post_post %}{% endblock %}
 		</div>
 	</div>
-</div>
+
 {% endblock %}

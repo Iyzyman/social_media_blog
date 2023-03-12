@@ -1,6 +1,7 @@
 /* Main container for the group list */
 .list-group {
-    margin-top: 20px;
+    width: 50vw;
+    margin-top: 10px;
     padding: 20px;
 }
 
@@ -29,7 +30,7 @@
 
 /* Style the badges for the number of members and posts */
 .badge {
-    background-color: #FF6347;
+    background-color: black;
     font-size: 16px;
     font-weight: bold;
     margin-right: 5px;
@@ -37,9 +38,8 @@
 }
 
 /* Style the "Create New Group" button */
-.btn-warning {
-    background-color: #FF6347;
-    border: none;
+.btn{
+    background-color: black;
     color: #FFFFFF;
     font-size: 18px;
     font-weight: bold;
@@ -48,33 +48,23 @@
     text-transform: uppercase;
 }
 
-/* Style the "Welcome Back" message */
-h2 {
-    color: #2F4F4F;
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
+.btn:hover {
+	background: darkgray;
 }
 
-/* Style the link to the user's profile page */
-a {
-    color: #FF6347;
-    font-weight: bold;
-}
 
 /* Style the page header */
 .content h2 {
-    color: white;
+    color: black;
     font-size: 50px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 /* Style the page description */
-.content p {
-    color:white;
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+.col-md-3{
+    margin-top: 10px;
+    color: black;
+    margin-left: 10px;
 }
 

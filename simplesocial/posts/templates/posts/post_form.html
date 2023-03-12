@@ -5,10 +5,12 @@
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 {% endblock %}
+<div class="container create">
 <h4>Create a new Post</h4>
-<form id="postForm" action="{% url 'posts:create' %}" method='post'>
+<form id="postForm" action="{% url 'posts:create' %}" method='post' enctype="multipart/form-data">
 	{% csrf_token %}
 	{% bootstrap_form form %}
 	<input type="submit" value='Post' class='btn btn-primary btn-large'>
 </form>
+</div>
 {% endblock %}

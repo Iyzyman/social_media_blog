@@ -5,6 +5,7 @@
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 {% endblock %}
+<div class="container create_comment">
     <h1>New comment</h1>
     <form method="POST" class="post-form">
     {% csrf_token %}
@@ -13,5 +14,5 @@
     </form>
 
     <script>var editor = new MediumEditor('.editable');</script>
-
+</div>
 {% endblock %}

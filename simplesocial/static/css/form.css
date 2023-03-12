@@ -6,9 +6,9 @@
   }
   
   #postForm input[type=submit] {
-    background-color: #FF6347;
-    border-color: #FF6347;
-    color: #FFFFFF;
+    background-color: black;
+    border-color: black;
+    color: white;
     font-size: 18px;
     font-weight: bold;
     margin-top: 20px;
@@ -17,8 +17,8 @@
   }
   
   #postForm input[type=submit]:hover {
-    background-color: #0069D9;
-    border-color: #0062CC;
+    background-color: darkgrey;
+    border-color: darkgrey;
   }
 
   #groupForm {
@@ -29,8 +29,8 @@
   }
   
   #groupForm input[type=submit] {
-    background-color: #FF6347;
-    border-color: #FF6347;
+    background-color: black;
+    border-color: black;
     color: #FFFFFF;
     font-size: 18px;
     font-weight: bold;
@@ -40,8 +40,8 @@
   }
   
   #groupForm input[type=submit]:hover {
-    background-color: #0069D9;
-    border-color: #0062CC;
+    background-color: darkgrey;
+    border-color: darkgrey;
   }
   h1 {
     font-size: 24px;
@@ -67,8 +67,8 @@
   }
   
   .post-form button {
-    background-color: #FF6347;
-    border-color: #FF6347;
+    background-color: black;
+    border-color: black;
     color: #FFFFFF;
     font-size: 18px;
     font-weight: bold;
@@ -78,10 +78,21 @@
   }
   
   .post-form button:hover {
-    background-color: #FF5733;
+    background-color: darkgrey;
   }
   
   .post-form label {
     font-size: 16px;
     font-weight: bold;
+  }
+  .create{
+    width:50vw;
+  }
+
+  .create_comment{
+    width:50vw;
+  }
+
+  .create_topic{
+    width:50vw;
   }

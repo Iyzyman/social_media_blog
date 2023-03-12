@@ -19,6 +19,7 @@ class Post(models.Model):
     message_html = models.TextField(editable=False)
     group = models.ForeignKey(
         Group, related_name="posts", null=True, blank=True, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
 
     def __str__(self):
         return self.message
